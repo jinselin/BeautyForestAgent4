@@ -33,7 +33,6 @@
             this.tpRead = new System.Windows.Forms.TabControl();
             this.tpRea = new System.Windows.Forms.TabPage();
             this.tpWrite = new System.Windows.Forms.TabPage();
-            this.loadFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtReadFile = new System.Windows.Forms.TextBox();
@@ -44,6 +43,7 @@
             this.btnWriteFileSelect = new System.Windows.Forms.Button();
             this.btnWriteText = new System.Windows.Forms.Button();
             this.txtWriteText = new System.Windows.Forms.TextBox();
+            this.openFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.tpRead.SuspendLayout();
             this.tpRea.SuspendLayout();
             this.tpWrite.SuspendLayout();
@@ -96,11 +96,6 @@
             this.tpWrite.Text = "파일 쓰기";
             this.tpWrite.UseVisualStyleBackColor = true;
             // 
-            // loadFileDlg
-            // 
-            this.loadFileDlg.FileName = "openFileDialog1";
-            this.loadFileDlg.Filter = "텍스트 파일(*.txt)|*.txt|모든파일 (*.*)|*.*";
-            // 
             // saveFileDlg
             // 
             this.saveFileDlg.Filter = "텍스트 파일(*.txt)|*.txt";
@@ -136,6 +131,7 @@
             this.btnReadFileSelect.TabIndex = 2;
             this.btnReadFileSelect.Text = "파일 선택";
             this.btnReadFileSelect.UseVisualStyleBackColor = true;
+            this.btnReadFileSelect.Click += new System.EventHandler(this.btnReadFileSelect_Click);
             // 
             // btnReadText
             // 
@@ -145,6 +141,7 @@
             this.btnReadText.TabIndex = 3;
             this.btnReadText.Text = "불러오기";
             this.btnReadText.UseVisualStyleBackColor = true;
+            this.btnReadText.Click += new System.EventHandler(this.btnReadText_Click);
             // 
             // txtWriteFile
             // 
@@ -162,6 +159,7 @@
             this.btnWriteFileSelect.TabIndex = 1;
             this.btnWriteFileSelect.Text = "파일 선택";
             this.btnWriteFileSelect.UseVisualStyleBackColor = true;
+            this.btnWriteFileSelect.Click += new System.EventHandler(this.btnWriteFileSelect_Click);
             // 
             // btnWriteText
             // 
@@ -171,6 +169,7 @@
             this.btnWriteText.TabIndex = 2;
             this.btnWriteText.Text = "저장하기";
             this.btnWriteText.UseVisualStyleBackColor = true;
+            this.btnWriteText.Click += new System.EventHandler(this.btnWriteText_Click);
             // 
             // txtWriteText
             // 
@@ -180,6 +179,12 @@
             this.txtWriteText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtWriteText.Size = new System.Drawing.Size(460, 242);
             this.txtWriteText.TabIndex = 3;
+            // 
+            // openFileDlg
+            // 
+            this.openFileDlg.FileName = "openFileDialog1";
+            this.openFileDlg.Filter = "텍스트 파일(*.txt)|*.txt|모든파일 (*.*)|*.*";
+            this.openFileDlg.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // FormMemo
             // 
@@ -193,6 +198,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMemo";
             this.Text = "3119 진세린";
+            this.Load += new System.EventHandler(this.FormMemo_Load);
             this.tpRead.ResumeLayout(false);
             this.tpRea.ResumeLayout(false);
             this.tpRea.PerformLayout();
@@ -217,8 +223,8 @@
         private System.Windows.Forms.Button btnWriteText;
         private System.Windows.Forms.Button btnWriteFileSelect;
         private System.Windows.Forms.TextBox txtWriteFile;
-        private System.Windows.Forms.OpenFileDialog loadFileDlg;
         private System.Windows.Forms.SaveFileDialog saveFileDlg;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.OpenFileDialog openFileDlg;
     }
 }
